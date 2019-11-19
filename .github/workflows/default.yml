@@ -1,0 +1,13 @@
+name: Build docker image
+on: 
+  push:
+    branches:
+    - '*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run Docker build
+      id: get_version
+      run: docker build -f test-docker/Dockerfile ./test-docker
