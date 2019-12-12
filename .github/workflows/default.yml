@@ -11,6 +11,9 @@ jobs:
 #     - name: Run Docker build
 #       id: get_version
 #       run: docker build -f test-docker/Dockerfile ./test-docker
+    - name: Test echo
+      id: test_echo
+      run: echo "Hello"
     - name: Test bash to lower
       id: test_bash
       run: mytest=srTfDFG-FD echo "${mytest,,}"
