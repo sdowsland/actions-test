@@ -16,7 +16,7 @@ jobs:
       run: echo "Hello"
     - name: demo
       id: demo_it
-      run: REPO=$( echo "${{ github.repository }}" | awk '{print tolower($0)}' )
+      run: REPO=$( echo "${{ github.repository }}" | echo $(awk '{print tolower($0)}') )
     - name: Test bash to lower
       id: test_bash
       run: echo "${REPO,,}"; 
