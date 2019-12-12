@@ -16,4 +16,4 @@ jobs:
       run: echo "Hello"
     - name: Test bash to lower
       id: test_bash
-      run: export mytest=srTfDFG-FD; echo "${mytest,,}";
+      run: echo "${${{ github.repository }},,}"; 
