@@ -14,6 +14,9 @@ jobs:
     - name: Test echo
       id: test_echo
       run: echo "Hello"
+    - name: demo
+      id: demo_it
+      run: REPO=$( echo "${{ github.repository }}" | awk '{print tolower($0)}' )
     - name: Test bash to lower
       id: test_bash
-      run: echo "${${{ github.repository }},,}"; 
+      run: echo "${REPO,,}"; 
