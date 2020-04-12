@@ -16,7 +16,7 @@ jobs:
       run: echo "Hello"
     - name: Test echo of secret into file
       run: |
-        'echo "$FINGERPRINT" >> file.txt'
+        'echo "$FINGERPRINT" > file.txt'
       env:
         FINGERPRINT: ${{secrets.RSA_FINGERPRINT}} 
     - name: demo
