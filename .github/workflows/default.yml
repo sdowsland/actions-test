@@ -16,7 +16,7 @@ jobs:
       run: echo "Hello"
     - name: Test echo of secret into file
       run: |
-        'echo "$FINGERPRINT" > file.txt'
+        'echo "$FINGERPRINT"'
       env:
         FINGERPRINT: ${{secrets.RANDOM_KEY}} 
     - name: demo
