@@ -14,6 +14,11 @@ jobs:
     - name: Test echo
       id: test_echo
       run: echo "Hello"
+    - name: Test echo of secret into file
+      run: |
+        'echo "$FINGERPRINT" >> file.txt'
+      env:
+        FINGERPRINT: ${{secrets.RSA_FINGERPRINT}} 
     - name: demo
       id: demo_it
       run: REPO=$( echo "${{ github.repository }}" | echo $(awk '{print tolower($0)}') )
