@@ -18,7 +18,7 @@ jobs:
       run: |
         'echo "$FINGERPRINT" > file.txt'
       env:
-        FINGERPRINT: ${{secrets.RANDOM_SECRET}} 
+        FINGERPRINT: ${{secrets.RANDOM_KEY}} 
     - name: demo
       id: demo_it
       run: REPO=$( echo "${{ github.repository }}" | echo $(awk '{print tolower($0)}') )
