@@ -16,6 +16,8 @@ jobs:
           fileOutput: ','
       - name: testHome
         run: echo $HOME
+      - name: testlsHome
+        run: ls $HOME
       - name: test
         run: grep renv.lock $HOME/files_modified.csv
       - name: changed_renv
