@@ -23,6 +23,7 @@ jobs:
       - name: test
         run: grep yml $HOME/files_modified.csv
       - name: changed_yml
+        id: changed_yml
         run: |
           MODIFIED=$(grep yml $HOME/files_modified.csv)
           echo ::set-output name=RENV_MODIFIED::$MODIFIED
