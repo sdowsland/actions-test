@@ -26,15 +26,15 @@ jobs:
         id: changed_yml
         run: |
           MODIFIED=$(grep yml $HOME/files_modified.csv)
+          if $(grep yml $HOME/files_modified.csv); then
+            MODIFIED=$(grep yml $HOME/files_modified.csv)
+          else
+            MODIFIED="nope"
+          fi
+          
           echo ::set-output name=RENV_MODIFIED::$MODIFIED
       - name: Testyml
         run: echo ${{steps.changed_yml.outputs.RENV_MODIFIED}}
-      - name: changed_renv
-        run: |
-          MODIFIED=$(grep renv.lock $HOME/files_modified.csv)
-          echo ::set-output name=RENV_MODIFIED::$MODIFIED
-      - name: Test
-        run: echo ${{steps.changed_renv.outputs.RENV_MODIFIED}}
 # jobs:
 #   build:
 #     runs-on: ubuntu-latest
