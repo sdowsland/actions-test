@@ -21,7 +21,7 @@ jobs:
       - name: testcsv
         run: cat $HOME/files_modified.csv
       - name: test
-        run: grep renv.lock $HOME/files_modified.csv
+        run: grep yml $HOME/files_modified.csv
       - name: changed_renv
         run: |
           MODIFIED=$(grep renv.lock $HOME/files_modified.csv)
