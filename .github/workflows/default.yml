@@ -27,7 +27,7 @@ jobs:
       - name: Testyml
         run: echo ${{steps.changed_yml.outputs.RENV_MODIFIED}}
       - name: TestId
-        if: contains(steps.changed_yml.outputs.RENV_MODIFIED, 'renv')
+        if: contains(steps.changed_yml.outputs.RENV_MODIFIED, 'renv.lock')
         run: echo "yeysyeysyeys"
 # jobs:
 #   build:
