@@ -19,7 +19,7 @@ jobs:
           MODIFIED=$(grep renv.lock $HOME/files_modified.csv)
           echo ::set-output name=RENV_MODIFIED::$MODIFIED
       - name: Test
-        run: echo ${{RENV_MODIFIED}}
+        run: echo ${{steps.changed_renv.outputs.RENV_MODIFIED}}
 # jobs:
 #   build:
 #     runs-on: ubuntu-latest
