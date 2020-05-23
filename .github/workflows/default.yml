@@ -25,7 +25,7 @@ jobs:
       - name: changed_yml
         id: changed_yml
         run: |
-          if $(grep yml $HOME/files_modified.csv); then
+          if grep yml $HOME/files_modified.csv; then
             MODIFIED=$(grep yml $HOME/files_modified.csv)
           else
             MODIFIED="nope"
