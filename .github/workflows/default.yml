@@ -26,7 +26,7 @@ jobs:
         id: changed_yml
         run: |
           if grep yml $HOME/files_modified.csv; then
-            MODIFIED=$(grep yml $HOME/files_modified.csv)
+            MODIFIED=$(grep renv.lock $HOME/files_modified.csv)
           else
             MODIFIED="nope"
           fi
@@ -34,6 +34,9 @@ jobs:
           echo ::set-output name=RENV_MODIFIED::$MODIFIED
       - name: Testyml
         run: echo ${{steps.changed_yml.outputs.RENV_MODIFIED}}
+      - name: TestId
+        if: contains(${{ steps.changed_yml.outputs.RENV_MODIFIED }}, 'renv.lock')
+        run: echo "yeysyeysyeys"
 # jobs:
 #   build:
 #     runs-on: ubuntu-latest
