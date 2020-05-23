@@ -14,14 +14,6 @@ jobs:
         with:
           output: ','
           fileOutput: ','
-      - name: testHome
-        run: echo $HOME
-      - name: testlsHome
-        run: ls $HOME
-      - name: testcsv
-        run: cat $HOME/files_modified.csv
-      - name: test
-        run: grep yml $HOME/files_modified.csv
       - name: changed_yml
         id: changed_yml
         run: |
