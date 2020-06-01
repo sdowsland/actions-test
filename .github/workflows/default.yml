@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: who
         run: whoami
+      - name: import_blogdown 
+        run: Rscript -e "library(blogdown)"
     
 
 # jobs:
