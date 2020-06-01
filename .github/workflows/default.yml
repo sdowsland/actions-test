@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-18.04
     container: jonnylaw/nicdblog:latest
     steps:
+      - name: pwd
+        run: pwd
+      - name: ls
+        run: ls -a
       - name: who
         run: whoami
       - name: installed_packages
