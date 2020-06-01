@@ -16,6 +16,8 @@ jobs:
         run: whoami
       - name: copy renv
         run: cp -r /usr/local/app/renv .
+      - name: copy rprof
+        run: cp /usr/local/app/.Rprofile .
       - name: ls renv
         run: ls -lah renv/library/R-4.0/x86_64-pc-linux-gnu/
       - name: installed_packages
