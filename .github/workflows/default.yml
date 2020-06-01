@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: who
         run: whoami
+      - name: installed_packages
+        run: Rscript -e "installed.packages()"
       - name: import_blogdown 
         run: Rscript -e "library(blogdown)"
     
