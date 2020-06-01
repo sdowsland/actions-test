@@ -14,6 +14,8 @@ jobs:
         run: ls -a
       - name: who
         run: whoami
+      - name: copy renv
+        run: cp -r /usr/local/app/renv .
       - name: installed_packages
         run: Rscript -e "installed.packages()"
       - name: import_blogdown 
