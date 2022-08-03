@@ -4,11 +4,32 @@ on:
     branches:
     - '*'
 jobs:
-    test-envs:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Echo a thing
-          run: echo ${GITHUB_REF_SLUG}
+  detect_env:
+    name: Detect Environment
+    runs-on: ubuntu-latest
+    outputs: 
+      sonarqube_token: ${{ steps.set_token.outputs.sonarqube_token }}
+    steps:
+      # This step is run when the tag is staging
+      - name: Sets env token for staging
+        id: set_token_staging
+        run: |
+            # Strip git ref prefix from branch
+            BRANCH=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+
+            echo "$BRANCH"
+          
+            [ "$BRANCH" == "master" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN
+
+            [ "$BRANCH" == "staging" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN_STAGING
+
+  build:
+    name: Build
+    needs: detect_env
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{needs.detect_env.outputs.sonarqube_token}}
+
 #   user_check:
 #     runs-on: ubuntu-18.04
 #     container: jonnylaw/nicdblog:latest
