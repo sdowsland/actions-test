@@ -10,6 +10,8 @@ jobs:
     outputs: 
       sonarqube_token: ${{ steps.set_token.outputs.sonarqube_token }}
     steps:
+      - name: ref
+        run: echo ${{github.ref }}
       # This step is run when the tag is staging
       - name: Sets env token for staging
         id: set_token
