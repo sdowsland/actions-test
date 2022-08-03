@@ -19,10 +19,10 @@ jobs:
 
             echo "$BRANCH"
           
-            [ "$BRANCH" == "master" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN
+            [ "$BRANCH" == "main" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN
 
             [ "$BRANCH" == "staging" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN_STAGING
-
+            
   build:
     name: Build
     needs: detect_env
