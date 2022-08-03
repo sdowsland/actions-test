@@ -12,7 +12,10 @@ jobs:
     steps:
       - name: ref
         run: echo ${{github.ref }}
-      # This step is run when the tag is staging
+      - name: is main
+        run: echo ${{ github.ref == 'ref/heads/main' }}
+      - name: is master
+        run: echo ${{ github.ref == 'ref/heads/master' }}
       - name: Sets env token for staging
         id: set_token
         run: |
