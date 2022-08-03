@@ -12,7 +12,7 @@ jobs:
     steps:
       # This step is run when the tag is staging
       - name: Sets env token for staging
-        id: set_token_staging
+        id: set_token
         run: |
             # Strip git ref prefix from branch
             BRANCH=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
