@@ -18,12 +18,12 @@ jobs:
             BRANCH=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
             echo "$BRANCH"
-            
-            [ "$BRANCH" == "master" ] && echo "yup"
           
-            [ "$BRANCH" == "master" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN
+            [ "$BRANCH" == "master" ] && STAGE_TOKEN=SONAR_TOKEN
 
-            [ "$BRANCH" == "staging" ] && echo ::set-output name=sonarqube_token::SONAR_TOKEN_STAGING
+            [ "$BRANCH" == "staging" ] && STAGE_TOKEN=SONAR_TOKEN_STAGING
+            
+            echo ::set-output name=sonarqube_token::$STAGE_TOKEN
             
   build:
     name: Build
