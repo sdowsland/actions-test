@@ -13,9 +13,9 @@ jobs:
       - name: ref
         run: echo ${{github.ref }}
       - name: is main
-        run: echo ${{ github.ref == 'ref/heads/main' }}
+        run: echo ${{ github.ref == 'refs/heads/main' }}
       - name: is master
-        run: echo ${{ github.ref == 'ref/heads/master' }}
+        run: echo ${{ github.ref == 'refs/heads/master' }}
       - name: Sets env token for staging
         id: set_token
         run: |
