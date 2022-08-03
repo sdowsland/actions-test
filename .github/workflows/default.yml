@@ -23,6 +23,8 @@ jobs:
 
             [ "$BRANCH" == "staging" ] && STAGE_TOKEN=SONAR_TOKEN_STAGING
             
+            echo $STAGE_TOKEN
+            
             echo ::set-output name=sonarqube_token::$STAGE_TOKEN
             
   build:
